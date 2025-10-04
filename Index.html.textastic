@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Divuu!</title>
+<style>
+    body {
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        background: #ffe4e1;
+        overflow-x: hidden;
+        padding: 20px;
+        position: relative;
+    }
+    h1 {
+        font-family: 'Brush Script MT', cursive;
+        color: #d2691e;
+        font-size: 36px;
+    }
+    #photo-section img {
+        width: 80%;
+        max-width: 400px;
+        border-radius: 15px;
+        margin-top: 20px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+    #cake, #dancing-cat {
+        width: 200px;
+        max-width: 50%;
+        margin: 20px auto;
+        display: block;
+    }
+    #birthday-message {
+        font-size: 24px;
+        margin-top: 20px;
+        color: #d2691e;
+    }
+    .sweet-paragraphs {
+        max-width: 600px;
+        margin: 20px auto;
+        font-size: 18px;
+        line-height: 1.6;
+        color: #8B4513; 
+        text-align: left;
+        background: #fff0f5;
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .balloon {
+        position: absolute;
+        width: 60px;
+        height: 80px;
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        animation: floatUp linear infinite;
+        cursor: pointer;
+    }
+    @keyframes floatUp {
+        0% { transform: translateY(100vh); }
+        100% { transform: translateY(-100px); }
+    }
+    .confetti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        opacity: 0.7;
+        top: 0;
+        z-index: 9999;
+        pointer-events: none;
+        animation: confettiFall linear infinite;
+    }
+    @keyframes confettiFall {
+        0% { transform: translateY(0) rotate(0deg); }
+        100% { transform: translateY(100vh) rotate(360deg); }
+    }
+    .gift {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: #ff69b4;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+</style>
+</head>
+<body>
+
+<h1>🎉 Happy Birthday Divuu! 🎉</h1>
+
+<div id="photo-section">
+    <img src="https://i.postimg.cc/MKxCWTdg/IMG-1093.jpg" alt="Divuu's Photo">
+</div>
+
+<img id="cake" src="https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUydzV6ZXZudXBhNG94dTRjbDZjdWk4bWJtaWxpZDV0ODk1c25mbXFtbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Z21HJj2kz9uBG/giphy.gif" alt="Birthday Cake">
+
+<img id="dancing-cat" src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyaGg5ODhjMjczazJ1NGs2YnQ2ZGV1amRjaHlkOXpxcWJ6N3BmZmtiOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IcJ6n6VJNjRNS/giphy.gif" alt="Dancing Cat">
+
+<div id="birthday-message">
+    <p>May your day be filled with laughter, love, and magic!</p>
+</div>
+
+<div class="sweet-paragraphs">
+    <p>Dear Divuu,</p>
+    <p>Today is all about celebrating YOU! Your laughter lights up every room, and your kindness touches everyone around you. I hope this year brings you countless moments of happiness, endless adventures, and dreams coming true.</p>
+    <p>Thank you for being such a wonderful friend and for all the little moments we've shared together. Every memory with you is a treasure, and I can't wait to create many more in the coming years.</p>
+    <p>Happy Birthday, Divuu! Keep shining, smiling, and dancing through life just like the dancing cat above! 🐱💖</p>
+</div>
+
+<script>
+const colors = ["#ff4da6", "#ffb84d", "#80ff80", "#4da6ff", "#ffff66"];
+
+// Balloons
+for (let i = 0; i < 10; i++) {
+    const balloon = document.createElement('div');
+    balloon.classList.add('balloon');
+    balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    balloon.style.left = Math.random() * 90 + "vw";
+    balloon.style.animationDuration = 5 + Math.random() * 5 + "s";
+    balloon.addEventListener('click', () => {
+        alert("🎈 Wishing you a super amazing birthday, Divuu! 🎉");
+    });
+    document.body.appendChild(balloon);
+}
+
+// Confetti
+function createConfetti() {
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    confetti.style.animationDuration = 3 + Math.random() * 3 + "s";
+    document.body.appendChild(confetti);
+    setTimeout(() => { confetti.remove(); }, 6000);
+}
+setInterval(createConfetti, 200);
+
+// Hidden Gifts
+const giftsMessages = [
+    "🎁 Surprise! You are amazing, Divuu! 💖",
+    "🎁 Another gift for you: Keep smiling and shining! 🌟",
+    "🎁 Last gift: May all your dreams come true! ✨"
+];
+
+for (let i = 0; i < 3; i++) {
+    const gift = document.createElement('div');
+    gift.classList.add('gift');
+    gift.style.left = Math.random() * 90 + "vw";
+    gift.style.top = Math.random() * 70 + "vh";
+    gift.addEventListener('click', () => {
+        alert(giftsMessages[i]);
+        gift.style.display = 'none';
+    });
+    document.body.appendChild(gift);
+}
+</script>
+
+</body>
+</html>
